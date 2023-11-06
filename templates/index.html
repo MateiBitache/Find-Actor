@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+<form action="/" method="POST">
+    <div id="aia">
+        <h1>Actor Name: </h1>
+        <input type="text" id="actortext" name="actor" > <input type="submit">
+    </div>
+
+</form>
+{% if actor: %}
+    <ol>
+        {% for movie in lista: %}
+           {% if movie[0]|int > 0 %}
+            <li>
+                <div class="dreptunghi">
+                    <p id='text'>
+                        {{movie[1]}} ({{movie[0]}}% rating)
+                    </p>
+            </li>
+            {%endif%}
+        {%endfor%}
+    </ol>
+{%endif%}
+</body>
+</html>
